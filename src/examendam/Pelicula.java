@@ -33,5 +33,10 @@ public class Pelicula {
     public void setGenere(String genere) {
         this.genere = genere;
     }
+
+    @Override
+    public String toString() {
+        return "Pelicula{" + "nom=" + nom + ", genere=" + genere + '}';
+    }
    
 }

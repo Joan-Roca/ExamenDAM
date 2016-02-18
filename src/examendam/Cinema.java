@@ -5,6 +5,7 @@
  */
 package examendam;
 
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -66,13 +67,43 @@ public class Cinema {
     
     public Espectador avança_cua_clientSurtCaixer(String genere){
         Sala salaux = buscarSala(genere);
-        return this.getLlista().get(salaux).getLlista().pop();
+        Espectador esaux = this.getLlista().get(salaux).getLlista().pop();
+        this.getLlistaEspectadors().add(esaux);
+        return esaux;
+    }
+    
+     public String registreEspectadors(Comparator order){
+       TreeSet espectadorsaux = null;
+       
+       if (order!=null){
+        espectadorsaux = new TreeSet<Espectador>(order);
+       }else{
+        espectadorsaux = new TreeSet<Espectador>();
+       }     
+       
+        String res ="";
+        Espectador aux = null; 
+        Iterator it = this.getLlistaEspectadors().iterator();
+        
+        while (it.hasNext()){
+             espectadorsaux.add(it.next());      
+        }
+
+        it = espectadorsaux.iterator();
+        
+        while (it.hasNext()){
+             aux = (Espectador) it.next();
+             res += aux.toString()+"\n";
+        }
+        
+        return res;           
+        
     }
     
     //Añadimos espectador
-    public void afegirEspectador(String nom, String cp, Pelicula pelicula){
+    public void afegirEspectador(int codi,String nom, String cp, Pelicula pelicula){
         //creamos un espectador(falta codi)
-        Espectador esp1 = new Espectador(nom,cp,pelicula);
+        Espectador esp1 = new Espectador(codi,nom,cp,pelicula);
         //Buscar la sala que li toca
         Sala salaIndicada = buscarSala(pelicula.getGenere());
         //Trobar el caixer relacionat amb la sala
@@ -80,8 +111,6 @@ public class Cinema {
         //Afegir l'espectador al caixer;
         caixerIndicat.getLlista().push(esp1);
         //Afegirm el espectador que ha passat pel cinema
-        this.getLlistaEspectadors().add(esp1);
-        
         System.out.println("Espectador amb nom "+ esp1.getNom()+" afegit al "+caixerIndicat.getNom());
     }
 }

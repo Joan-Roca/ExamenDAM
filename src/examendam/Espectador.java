@@ -18,11 +18,11 @@ public class Espectador implements Comparable {
     private String cp;
     private Pelicula pelicula;
 
-    public Espectador(String nom, String cp, Pelicula pelicula) {
+    public Espectador(int codi,String nom, String cp, Pelicula pelicula) {
         this.setCodi(codi);
-        this.nom = nom;
-        this.cp = cp;
-        this.pelicula = pelicula;
+        this.setCp(cp);
+        this.setNom(nom);
+        this.setPelicula(pelicula);
     }
 
     public int getCodi() {
@@ -59,7 +59,7 @@ public class Espectador implements Comparable {
 
     @Override
     public String toString() {
-        return "Espectador{" + "codi=" + codi + ", nom=" + nom + ", cp=" + cp + ", pelicula=" + pelicula + '}';
+        return "Espectador{" + "codi=" + codi + ", nom=" + nom + ", cp=" + cp + ", pelicula=" + pelicula.toString() + '}';
     }
 
     @Override

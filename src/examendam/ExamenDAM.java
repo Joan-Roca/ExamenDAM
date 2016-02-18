@@ -26,9 +26,26 @@ public class ExamenDAM {
         Pelicula peli2 = new Pelicula("Interestelar","ciencia-ficció");
         Pelicula peli3 = new Pelicula("Indiana Jones","AlTrEs GeNErES");
         
-        oscars.afegirEspectador("Pepe", "034534", peli );
-        oscars.afegirEspectador("Paco", "325523", peli2);
-        oscars.afegirEspectador("Mariano", "PP2343", peli3);
+        oscars.afegirEspectador(1,"Pepe", "034534", peli );
+        oscars.afegirEspectador(3,"Paco", "325523", peli2);
+        oscars.afegirEspectador(2,"Mariano", "PP2343", peli3);
+        oscars.afegirEspectador(5,"Jose", "234234", peli3);
+        oscars.afegirEspectador(4,"Juan", "325523", peli2);
+        oscars.afegirEspectador(6,"Fulanito", "888975", peli);
+        
+        oscars.avança_cua_clientSurtCaixer("Terror");
+        oscars.avança_cua_clientSurtCaixer("ciencia-ficció");
+        oscars.avança_cua_clientSurtCaixer("Altres generes");
+        
+        oscars.avança_cua_clientSurtCaixer("Terror");
+        oscars.avança_cua_clientSurtCaixer("ciencia-ficció");
+        oscars.avança_cua_clientSurtCaixer("Altres generes");
+        
+        
+        System.out.println("#######ORDRE PER CP I NOM###########");
+        System.out.println(oscars.registreEspectadors(new OrdreCPNom()));
+        System.out.println("#######ORDRE PER TÍTOL DE PELÍCULA###########");
+        System.out.println(oscars.registreEspectadors(new OrdreTitolPelicula()));
         
     }
     

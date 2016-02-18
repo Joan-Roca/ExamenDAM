@@ -15,17 +15,15 @@ public class OrdreTitolPelicula implements Comparator{
 
     @Override
     public int compare(Object o1, Object o2) {
-        int ret = 0;
         Espectador es1 = (Espectador)o1;
         Espectador es2 = (Espectador)o2;
         
-        if(es1.getPelicula().getNom()!= es2.getPelicula().getNom()){
-            ret = -(es1.getPelicula().getNom().compareTo(es2.getPelicula().getNom()));
+        if(!es1.getPelicula().getNom().equals(es2.getPelicula().getNom())){
+            return (es1.getPelicula().getNom().compareTo(es2.getPelicula().getNom()));
         } else { 
-            ret = es1.getCodi()-es2.getCodi();
+            return  es1.getCodi()-es2.getCodi();
         }
         
-        return ret;
     }
     
 }
