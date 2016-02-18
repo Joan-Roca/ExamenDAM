@@ -20,7 +20,10 @@ public class Cinema {
         this.setLlista(new TreeMap<Sala,Caixer>());
         this.setLlistaEspectadors(new TreeSet<Espectador>());
     }
-
+    
+    public void addSala(String genero, int num){
+       Sala sala1 = new Sala(num,genero);
+    }
     public TreeMap<Sala, Caixer> getLlista() {
         return llista;
     }
@@ -42,10 +45,10 @@ public class Cinema {
         //creamos un espectador(falta codi)
         Espectador esp1 = new Espectador(nom,cp,pelicula);
         //creamos sala con el genero de la pelicula del espectador
-        Sala sal1 = new Sala(esp1.getPelicula().getGenere());
+        //Sala sal1 = new Sala(esp1.getPelicula().getGenere());
         //creamos un cajero
         Caixer caix1 = new Caixer();
         //asignamos la sala y el cajero al TreeMap
-        this.getLlista().put(sal1, caix1);       
+       // this.getLlista().put(sal1, caix1);       
     }
 }

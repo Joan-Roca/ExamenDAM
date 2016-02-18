@@ -11,9 +11,9 @@ package examendam;
  */
 public class Pelicula {
     private String nom;
-    private Genere genere;
+    private String genere;
 
-    public Pelicula(String nom, Genere genere) {
+    public Pelicula(String nom, String genere) {
         this.setNom(nom);
         this.setGenere(genere);
     }
@@ -26,11 +26,11 @@ public class Pelicula {
         this.nom = nom;
     }
 
-    public Genere getGenere() {
+    public String getGenere() {
         return genere;
     }
 
-    public void setGenere(Genere genere) {
+    public void setGenere(String genere) {
         this.genere = genere;
     }
    

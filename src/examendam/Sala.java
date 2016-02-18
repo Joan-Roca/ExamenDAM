@@ -10,17 +10,30 @@ package examendam;
  * @author Joan
  */
 public class Sala {
-    private Genere genere;
+    private int numero;
+    private String genere;
 
-    public Sala(Genere genere) {
-        this.setGenere(genere);
+    
+    public int getNumero() {
+        return numero;
     }
 
-    public Genere getGenere() {
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+    
+    
+
+    public Sala(int numero,String genere) {
+        this.setGenere(genere);
+        this.setNumero(numero);
+    }
+
+    public String getGenere() {
         return genere;
     }
 
-    public void setGenere(Genere genere) {
+    public void setGenere(String genere) {
         this.genere = genere;
     }
 
