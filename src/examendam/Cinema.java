@@ -55,6 +55,11 @@ public class Cinema {
         return res;
     }
     
+    public Espectador avança_cua_clientSurtCaixer(String genere){
+        Sala salaux = buscarSala(genere);
+        return this.getLlista().get(salaux).getLlista().pop();
+    }
+    
     public void afegirEspectador(String nom, String cp, Pelicula pelicula){
         // ***REVISAR**** Lo del cajero no lo tengo claro
         //creamos un espectador(falta codi)
@@ -64,9 +69,11 @@ public class Cinema {
         //Trobar el caixer relacionat amb la sala
         Caixer caixerIndicat = this.getLlista().get(salaIndicada);
         //Afegir l'espectador al caixer;
-        caixerIndicat.getLlista().push(esp1);
+        caixerIndicat.getLlista().push(esp1);   
         
-        System.out.println("Espectador amb nom "+esp1.getNom()+" afegit al "+caixerIndicat.getNom());
+        this.getLlistaEspectadors().add(esp1);
+        
+        System.out.println("Espectador amb nom "+esp1.getNom()+" afegit al "+caixerIndicat.getNom()+"I al registre");
         
         //creamos sala con el genero de la pelicula del espectador
         //Sala sal1 = new Sala(esp1.getPelicula().getGenere());
