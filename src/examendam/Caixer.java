@@ -11,9 +11,9 @@ import java.util.LinkedList;
  *
  * @author Joan
  */
-public class Caixer {
-    //Cola de espectadores
+public class Caixer {   
     private String nom;
+    //Cola de espectadores
     private Cua<Espectador> llista;
     
     //constructor
@@ -21,7 +21,8 @@ public class Caixer {
         this.setNom(nom);
         this.setLlista(new Cua<Espectador>());
     }
-
+    
+     //getters setters
     public String getNom() {
         return nom;
     }
@@ -30,7 +31,6 @@ public class Caixer {
         this.nom = nom;
     }
     
-    //getters setters
     public Cua<Espectador> getLlista() {
         return llista;
     }
@@ -40,7 +40,7 @@ public class Caixer {
     }
     
     //METODOS//  
-    //Entra en la cola del cajero
+    //Espectador entra en la cola del cajero
     public void entrarCua(Espectador esp){
         this.getLlista().push(esp);
     }
