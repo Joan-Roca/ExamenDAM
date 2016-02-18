@@ -16,6 +16,10 @@ public class ExamenDAM {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Cinema oscars = new Cinema();
+        oscars.addSala("Terror", 1);
+        oscars.addSala("Ciencia-ficció", 2);
+        oscars.addSala("Altres Generes", 3);
     }
     
 }
