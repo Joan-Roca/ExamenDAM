@@ -70,10 +70,11 @@ public class Cinema {
         Caixer caixerIndicat = this.getLlista().get(salaIndicada);
         //Afegir l'espectador al caixer;
         caixerIndicat.getLlista().push(esp1);   
-        
+        caixerIndicat.getLlista().push(esp1);
+        //Afegirm el espectador que ha passat pel cinema
         this.getLlistaEspectadors().add(esp1);
         
-        System.out.println("Espectador amb nom "+esp1.getNom()+" afegit al "+caixerIndicat.getNom()+"I al registre");
+        System.out.println("Espectador amb nom "+ esp1.getNom()+" afegit al "+caixerIndicat.getNom());
         
         //creamos sala con el genero de la pelicula del espectador
         //Sala sal1 = new Sala(esp1.getPelicula().getGenere());
