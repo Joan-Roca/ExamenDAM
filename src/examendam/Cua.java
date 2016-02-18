@@ -16,9 +16,18 @@ import java.util.LinkedList;
 public class Cua<T> {
     //atributos
     private LinkedList<T> llistat;
+    private int espectadors;
     //constructor
     public Cua( ) {
         this.setLlistat(new  LinkedList<T>());
+    }
+
+    public int getEspectadors() {
+        return espectadors;
+    }
+
+    public void setEspectadors(int espectadors) {
+        this.espectadors = espectadors;
     }
     //getters y setters
     public LinkedList<T> getLlistat() {
@@ -31,6 +40,7 @@ public class Cua<T> {
     
     //metodo al que le pasamos un elemento y lo pone al final de la cola
     public void push(T element){
+        this.setEspectadors(this.getEspectadors()+1);
         this.getLlistat().addLast(element);
     }
     
@@ -40,9 +50,13 @@ public class Cua<T> {
        T element=null;
         if(!this.buida())
           element=this.getLlistat().removeFirst();
+            this.setEspectadors(this.getEspectadors()-1);
         return element;
     }
     
+   public int size(){
+       return this.getEspectadors();
+   }
    //metodo que coge la cola y retorna true si esta vacía 
    public boolean buida(){
         boolean buida=false;

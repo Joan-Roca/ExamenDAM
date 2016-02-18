@@ -101,7 +101,7 @@ public class Cinema {
     }
     
     //Añadimos espectador
-    public void afegirEspectador(int codi,String nom, String cp, Pelicula pelicula){
+    public void afegirEspectador(int codi,String nom, String cp, Pelicula pelicula) throws QueueException{
         //creamos un espectador(falta codi)
         Espectador esp1 = new Espectador(codi,nom,cp,pelicula);
         //Buscar la sala que li toca
@@ -109,8 +109,9 @@ public class Cinema {
         //Trobar el caixer relacionat amb la sala
         Caixer caixerIndicat = this.getLlista().get(salaIndicada);
         //Afegir l'espectador al caixer;
+        if (caixerIndicat.getLlista().size()>25) throw new QueueException(caixerIndicat.getNom(),esp1);
         caixerIndicat.getLlista().push(esp1);
         //Afegirm el espectador que ha passat pel cinema
-        System.out.println("Espectador amb nom "+ esp1.getNom()+" afegit al "+caixerIndicat.getNom());
+        
     }
 }
