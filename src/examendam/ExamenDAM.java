@@ -20,7 +20,7 @@ public class ExamenDAM {
         oscars.addSala("Terror", 1);
         oscars.addSala("Ciencia-ficció", 2);
         oscars.addSala("Altres Generes", 3);
-        oscars.addSala("Prueba", 4);
+        oscars.addSala("Cambio", 4);
     }
     
 }
