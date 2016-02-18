@@ -38,12 +38,14 @@ public class Cinema {
     }
     
     public void afegirEspectador(String nom, String cp, Pelicula pelicula){
-        //esto esta a medias
+        // ***REVISAR**** Lo del cajero no lo tengo claro
+        //creamos un espectador(falta codi)
         Espectador esp1 = new Espectador(nom,cp,pelicula);
-        
+        //creamos sala con el genero de la pelicula del espectador
         Sala sal1 = new Sala(esp1.getPelicula().getGenere());
-        
-        //Caixer caix1 = new Caixer(this.getLlistaEspectadors());
-        //this.getLlista().put(sal1, caix1);       
+        //creamos un cajero
+        Caixer caix1 = new Caixer();
+        //asignamos la sala y el cajero al TreeMap
+        this.getLlista().put(sal1, caix1);       
     }
 }
