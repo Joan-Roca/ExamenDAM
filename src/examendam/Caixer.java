@@ -13,11 +13,21 @@ import java.util.LinkedList;
  */
 public class Caixer {
     //Cola de espectadores
+    private String nom;
     private Cua<Espectador> llista;
     
     //constructor
-    public Caixer() {
+    public Caixer(String nom) {
+        this.setNom(nom);
         this.setLlista(new Cua<Espectador>());
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
     }
     
     //getters setters

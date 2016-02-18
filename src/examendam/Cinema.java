@@ -5,6 +5,7 @@
  */
 package examendam;
 
+import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -25,7 +26,7 @@ public class Cinema {
     public void addSala(String genero, int num){
         //Crear Sala i asociarli un caixer
        Sala salaux = new Sala(num,genero);
-       Caixer caixaux = new Caixer();
+       Caixer caixaux = new Caixer("Caixer de la sala numero "+num);
        this.getLlista().put(salaux, caixaux);
     }
     public TreeMap<Sala, Caixer> getLlista() {
@@ -44,15 +45,32 @@ public class Cinema {
         this.llistaEspectadors = llistaEspectadors;
     }
     
+    public Sala buscarSala(String genere){
+        Sala res = null;
+        Iterator it = this.getLlista().keySet().iterator();
+        while (it.hasNext()){
+            Sala aux = (Sala) it.next();
+            if (aux.getGenere().equalsIgnoreCase(genere)) res=aux;
+        }
+        return res;
+    }
+    
     public void afegirEspectador(String nom, String cp, Pelicula pelicula){
         // ***REVISAR**** Lo del cajero no lo tengo claro
         //creamos un espectador(falta codi)
         Espectador esp1 = new Espectador(nom,cp,pelicula);
+        //Buscar la sala que li toca
+        Sala salaIndicada = buscarSala(pelicula.getGenere());
+        //Trobar el caixer relacionat amb la sala
+        Caixer caixerIndicat = this.getLlista().get(salaIndicada);
+        //Afegir l'espectador al caixer;
+        caixerIndicat.getLlista().push(esp1);
+        
+        System.out.println("Espectador amb nom "+esp1.getNom()+" afegit al "+caixerIndicat.getNom());
         
         //creamos sala con el genero de la pelicula del espectador
         //Sala sal1 = new Sala(esp1.getPelicula().getGenere());
         //creamos un cajero
-        Caixer caix1 = new Caixer();
         //asignamos la sala y el cajero al TreeMap
        // this.getLlista().put(sal1, caix1);       
     }

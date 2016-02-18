@@ -21,6 +21,15 @@ public class ExamenDAM {
         oscars.addSala("Ciencia-ficció", 2);
         oscars.addSala("Altres Generes", 3);
         oscars.addSala("Prueba", 4);
+        
+        Pelicula peli = new Pelicula("SAW","TeRRoR");
+        Pelicula peli2 = new Pelicula("Interestelar","ciencia-ficció");
+        Pelicula peli3 = new Pelicula("Indiana Jones","AlTrEs GeNErES");
+        
+        oscars.afegirEspectador("Pepe", "034534", peli );
+        oscars.afegirEspectador("Paco", "325523", peli2);
+        oscars.afegirEspectador("Mariano", "PP2343", peli3);
+        
     }
     
 }

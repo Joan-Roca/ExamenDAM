@@ -9,7 +9,7 @@ package examendam;
  *
  * @author Joan
  */
-public class Sala {
+public class Sala implements Comparable{
     private int numero;
     private String genere;
 
@@ -35,6 +35,12 @@ public class Sala {
 
     public void setGenere(String genere) {
         this.genere = genere;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Sala aux = (Sala) o;
+        return this.getNumero()-aux.getNumero();
     }
 
     
