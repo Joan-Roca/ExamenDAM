@@ -22,7 +22,9 @@ public class Cinema {
     }
     
     public void addSala(String genero, int num){
-       Sala sala1 = new Sala(num,genero);
+       Sala salaux = new Sala(num,genero);
+       Caixer caixaux = new Caixer();
+       
     }
     public TreeMap<Sala, Caixer> getLlista() {
         return llista;
