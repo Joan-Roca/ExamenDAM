@@ -18,17 +18,18 @@ public class ExamenDAM {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        //Creamos cine
         Cinema oscars = new Cinema();
+        //Añadimos a cine 4 salas
         oscars.addSala("Terror", 1);
         oscars.addSala("Ciencia-ficció", 2);
         oscars.addSala("Altres Generes", 3);
         oscars.addSala("Prueba", 4);
-        
+        //Creamos 3 peliculas
         Pelicula peli = new Pelicula("SAW","TeRRoR");
         Pelicula peli2 = new Pelicula("Interestelar","ciencia-ficció");
         Pelicula peli3 = new Pelicula("Indiana Jones","AlTrEs GeNErES");
-        
+        //Añadimos espectadores con el try/catch de nuestra excepcion
         try {
             oscars.afegirEspectador(1,"Pepe", "034534", peli );
             oscars.afegirEspectador(3,"Paco", "325523", peli2);
@@ -41,7 +42,7 @@ public class ExamenDAM {
         }
        
         
-
+        //Sacamos espectadores de las colas
         oscars.avança_cua_clientSurtCaixer("Terror");
         oscars.avança_cua_clientSurtCaixer("ciencia-ficció");
         oscars.avança_cua_clientSurtCaixer("Altres generes");
@@ -50,12 +51,14 @@ public class ExamenDAM {
         oscars.avança_cua_clientSurtCaixer("ciencia-ficció");
         oscars.avança_cua_clientSurtCaixer("Altres generes");
         
-        
+        //Imprimimos órdenes de espectadores
         System.out.println("#######ORDRE PER CP I NOM###########");
         System.out.println(oscars.registreEspectadors(new OrdreCPNom()));
         System.out.println("#######ORDRE PER TÍTOL DE PELÍCULA###########");
         System.out.println(oscars.registreEspectadors(new OrdreTitolPelicula()));
         
+        //Aqui hacemos saltar nuestro try/catch en las 3 colas añadiendo 
+        //demasiada gente
         for (int i = 7 ; i < 34 ; i++){
             try {
                 oscars.afegirEspectador(i, "ExcepcionCola1", "432423", peli);

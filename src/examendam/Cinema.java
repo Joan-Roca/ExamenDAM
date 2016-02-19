@@ -65,8 +65,9 @@ public class Cinema {
         return res;
     }
     
-    //Metodo que nos devuelve el espectador que sale del cajero, según el género
+    //Metodo que hace salir al espectador del cajero, según el género
     //de pelicula que le enviamos(recordar que cada sala tiene un genero)
+    //Además devuelve el espectador
     public Espectador avança_cua_clientSurtCaixer(String genere){
         Sala salaux = buscarSala(genere);
         Espectador esaux = this.getLlista().get(salaux).getLlista().pop();
@@ -106,13 +107,15 @@ public class Cinema {
     
     //Añadimos espectador
     public void afegirEspectador(int codi,String nom, String cp, Pelicula pelicula) throws QueueException{
-        //creamos un espectador(falta codi)
+        //creamos un espectador
         Espectador esp1 = new Espectador(codi,nom,cp,pelicula);
-        //Buscar la sala que li toca
+        //Buscar la sala que le toca segun el genero de la pelicula
         Sala salaIndicada = buscarSala(pelicula.getGenere());
-        //Trobar el caixer relacionat amb la sala
+        //Trobar el caixer relacionat amb la sala. Encontramos el cajero pasandole
+        //al TreeMap la sala
         Caixer caixerIndicat = this.getLlista().get(salaIndicada);
-        //Afegir l'espectador al caixer;
+        //Afegir l'espectador al caixer. Usamos una excepcion que saltará cuando 
+        //la cola del cajero sea mayor de 25 
         if (caixerIndicat.getLlista().size()>25) throw new QueueException(caixerIndicat.getNom(),esp1);
         caixerIndicat.getLlista().push(esp1);
         //Afegirm el espectador que ha passat pel cinema
