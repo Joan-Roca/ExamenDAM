@@ -147,7 +147,7 @@ public class Cinema implements Serializable{
             oos.writeObject(cin);
             oos.close();  // Se cierra al terminar.
         } catch (IOException ex) {
-            Logger.getLogger(ExamenDAM.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Examen_REPAS_C.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         try {

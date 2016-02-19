@@ -12,7 +12,7 @@ import java.util.logging.Logger;
  *
  * @author Joan
  */
-public class ExamenDAM {
+public class Examen_REPAS_C {
 
     /**
      * @param args the command line arguments
