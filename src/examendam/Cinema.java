@@ -65,6 +65,8 @@ public class Cinema {
         return res;
     }
     
+    //Metodo que nos devuelve el espectador que sale del cajero, según el género
+    //de pelicula que le enviamos(recordar que cada sala tiene un genero)
     public Espectador avança_cua_clientSurtCaixer(String genere){
         Sala salaux = buscarSala(genere);
         Espectador esaux = this.getLlista().get(salaux).getLlista().pop();
@@ -72,6 +74,8 @@ public class Cinema {
         return esaux;
     }
     
+    //Metodo que nos devuelve el orden de Espectadores según que clase 
+    //comparator le enviemos
      public String registreEspectadors(Comparator order){
        TreeSet espectadorsaux = null;
        
