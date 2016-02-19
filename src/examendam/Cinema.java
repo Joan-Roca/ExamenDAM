@@ -5,16 +5,27 @@
  */
 package examendam;
 
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.TreeMap;
 import java.util.TreeSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Joan
  */
-public class Cinema {
+public class Cinema implements Serializable{
+    private static final long serialVersionUID = -6128673791837483029L;
+    
     private TreeMap<Sala,Caixer> llista;
     public TreeSet<Espectador> llistaEspectadors;  
 
@@ -120,5 +131,57 @@ public class Cinema {
         caixerIndicat.getLlista().push(esp1);
         //Afegirm el espectador que ha passat pel cinema
         
+    }
+    
+    //Graba la lista de espectadores y la lee. Le pasamos el objeto cine del 
+    //momento en el que queremos que lea la lista. Recordar que en este método 
+    //usamos el tostring de Cinema
+    public void gravaFitxer(Cinema cin) {
+        String fichero = "src/dades/llistaEspectadors";
+
+        ObjectOutputStream oos;
+        ObjectInputStream ois;
+
+        try {
+            oos = new ObjectOutputStream(new FileOutputStream(fichero));           
+            oos.writeObject(cin);
+            oos.close();  // Se cierra al terminar.
+        } catch (IOException ex) {
+            Logger.getLogger(ExamenDAM.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            ois = new ObjectInputStream(new FileInputStream(fichero));
+
+            // Se lee el primer objeto
+            Object aux = ois.readObject();
+
+            // Mientras haya objetos
+            while (aux != null) {
+                if (aux instanceof Cinema) {
+                    //es lo mismo poner aux.tostring. Coge directamente el tostring si existe
+                    System.out.println(aux);  // Se escribe en pantalla el objeto
+                }
+                aux = ois.readObject();
+            }
+            ois.close();
+        } catch (EOFException e1) {
+            System.out.println("fin de fichero");
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+    
+    //tostring de cine que usa la lista de espectadores
+    @Override
+    public String toString() {
+        String text = "";
+        Iterator it = this.getLlistaEspectadors().iterator();
+        Espectador cl = null;
+        while (it.hasNext()) {
+            cl = (Espectador) it.next();
+            text = text + cl.toString() + "\n";
+        }
+        return text;
     }
 }

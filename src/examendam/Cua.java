@@ -6,6 +6,7 @@
 package examendam;
 
 //import generics.*;
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
@@ -13,7 +14,9 @@ import java.util.LinkedList;
  * @author tanreb123456
  */
 //T es un comodin para un elemento
-public class Cua<T> {
+public class Cua<T> implements Serializable{
+    private static final long serialVersionUID = 8050653341692030079L;
+    
     //atributos
     private LinkedList<T> llistat;
     private int espectadors;

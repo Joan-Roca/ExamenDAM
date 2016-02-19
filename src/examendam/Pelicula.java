@@ -5,11 +5,15 @@
  */
 package examendam;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Joan
  */
-public class Pelicula {
+public class Pelicula implements Serializable{
+    private static final long serialVersionUID = -1521562249089144388L;
+    
     private String nom;
     private String genere;
 

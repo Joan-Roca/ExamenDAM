@@ -81,6 +81,10 @@ public class ExamenDAM {
             }
         }
         
+        //Lanzamos metodo grabar y leer fichero
+        System.out.println("");
+        System.out.println("***LISTADO ESPECTADORES DE HOY:***");
+        oscars.gravaFitxer(oscars);
     }
     
 }

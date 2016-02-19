@@ -5,13 +5,15 @@
  */
 package examendam;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Joan
  */
-public class Espectador implements Comparable {
+public class Espectador implements Comparable, Serializable {
+    private static final long serialVersionUID = -273057673799388551L;
 
     private int codi;
     private String nom;

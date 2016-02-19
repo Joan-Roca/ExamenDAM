@@ -5,13 +5,16 @@
  */
 package examendam;
 
+import java.io.Serializable;
 import java.util.LinkedList;
 
 /**
  *
  * @author Joan
  */
-public class Caixer {   
+public class Caixer implements Serializable{   
+    private static final long serialVersionUID = 5091667629793827365L;
+    
     private String nom;
     //Cola de espectadores
     private Cua<Espectador> llista;

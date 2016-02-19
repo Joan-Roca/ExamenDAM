@@ -5,11 +5,15 @@
  */
 package examendam;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Joan
  */
-public class Sala implements Comparable{
+public class Sala implements Comparable, Serializable{
+    private static final long serialVersionUID = 6274445185158061266L;
+    
     private int numero;
     private String genere;
 
